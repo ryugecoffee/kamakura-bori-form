@@ -22,30 +22,13 @@
     margin-bottom: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
-  .header-accent {
-    height: 10px;
-    background: linear-gradient(to right, #8b5e3c, #c49a6c);
-  }
+  .header-accent { height: 10px; background: linear-gradient(to right, #8b5e3c, #c49a6c); }
   .header-body { padding: 24px 20px; }
-  .header-body h1 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 16px;
-    line-height: 1.4;
-  }
+  .header-body h1 { font-size: 20px; font-weight: bold; margin-bottom: 16px; line-height: 1.4; }
   .header-body p { font-size: 14px; line-height: 1.8; color: #444; }
-  .event-info {
-    margin-top: 16px;
-    font-size: 13px;
-    line-height: 2;
-    color: #555;
-  }
+  .event-info { margin-top: 16px; font-size: 13px; line-height: 2; color: #555; }
   .event-info a { color: #8b5e3c; }
-  .required-note {
-    font-size: 12px;
-    color: #d32f2f;
-    margin-top: 12px;
-  }
+  .required-note { font-size: 12px; color: #d32f2f; margin-top: 12px; }
 
   .card {
     background: #fff;
@@ -54,22 +37,27 @@
     margin-bottom: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   }
+  .card .section-title {
+    font-size: 13px;
+    font-weight: bold;
+    color: #8b5e3c;
+    background: #fdf6ee;
+    margin: -20px -20px 16px;
+    padding: 10px 20px;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #e8d9c8;
+  }
   .card label.q {
     font-size: 15px;
     font-weight: 600;
     display: block;
     margin-bottom: 4px;
   }
-  .card .sub {
-    font-size: 12px;
-    color: #666;
-    margin-bottom: 14px;
-  }
+  .card .sub { font-size: 12px; color: #666; margin-bottom: 14px; }
   .required { color: #d32f2f; margin-left: 4px; }
+  .field-gap { margin-top: 20px; }
 
-  input[type="text"],
-  input[type="email"],
-  input[type="tel"] {
+  input[type="text"], input[type="email"], input[type="tel"] {
     width: 100%;
     border: none;
     border-bottom: 1px solid #bbb;
@@ -80,30 +68,25 @@
     background: transparent;
     color: #333;
   }
-  input[type="text"]:focus,
-  input[type="email"]:focus,
-  input[type="tel"]:focus {
+  input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
     border-bottom: 2px solid #8b5e3c;
   }
 
-  .radio-group, .design-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .radio-option {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  select {
+    font-family: inherit;
     font-size: 15px;
-    cursor: pointer;
-  }
-  input[type="radio"] {
+    padding: 8px 12px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    background: #fff;
+    color: #333;
+    margin-top: 8px;
     accent-color: #8b5e3c;
-    width: 18px;
-    height: 18px;
-    flex-shrink: 0;
   }
+
+  .radio-group { display: flex; flex-direction: column; gap: 10px; }
+  .radio-option { display: flex; align-items: center; gap: 12px; font-size: 15px; cursor: pointer; }
+  input[type="radio"] { accent-color: #8b5e3c; width: 18px; height: 18px; flex-shrink: 0; }
 
   .design-grid {
     display: grid;
@@ -124,73 +107,55 @@
     transition: border-color 0.15s, background 0.15s;
     text-align: center;
   }
-  .design-option:has(input:checked) {
-    border-color: #8b5e3c;
-    background: #fdf6ee;
-  }
-  .design-option img {
-    width: 100%;
-    max-width: 120px;
-    border-radius: 50%;
-    display: block;
-  }
-  .design-option input[type="radio"] {
-    margin-top: 4px;
-  }
-  .design-option.full-width {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    max-width: 50%;
-    margin: 0 auto;
-  }
-  .design-option.full-width img {
-    max-width: 80px;
-  }
+  .design-option:has(input:checked) { border-color: #8b5e3c; background: #fdf6ee; }
+  .design-option img { width: 100%; max-width: 120px; border-radius: 50%; display: block; }
+  .design-option input[type="radio"] { margin-top: 4px; }
+  .design-option.full-width { grid-column: 1 / -1; flex-direction: row; max-width: 50%; margin: 0 auto; }
+  .design-option.full-width img { max-width: 80px; }
 
   .submit-btn {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    background: #8b5e3c;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-family: inherit;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 8px;
-    letter-spacing: 0.05em;
+    display: block; width: 100%; padding: 14px;
+    background: #8b5e3c; color: #fff; border: none; border-radius: 6px;
+    font-size: 16px; font-family: inherit; font-weight: bold;
+    cursor: pointer; margin-top: 8px; letter-spacing: 0.05em;
   }
   .submit-btn:hover { background: #7a5234; }
+  .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
-  /* Thank you screen */
-  #thankyou {
-    display: none;
-    text-align: center;
-    padding: 40px 20px;
-  }
+  #thankyou { display: none; text-align: center; padding: 40px 20px; }
   #thankyou .check { font-size: 56px; margin-bottom: 16px; }
   #thankyou h2 { font-size: 20px; margin-bottom: 12px; }
   #thankyou p { font-size: 14px; color: #555; line-height: 1.8; }
 
-  /* error */
-  .error-msg {
-    color: #d32f2f;
-    font-size: 12px;
-    margin-top: 4px;
-    display: none;
+  .error-msg { color: #d32f2f; font-size: 12px; margin-top: 4px; display: none; }
+
+  #closed {
+    display: none; background: #fff; border-radius: 8px;
+    padding: 40px 20px; text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-top: 12px;
   }
-  .field-error input,
-  .field-error .radio-group { /* highlight */ }
+  #closed .icon { font-size: 48px; margin-bottom: 16px; }
+  #closed h2 { font-size: 20px; font-weight: bold; margin-bottom: 12px; color: #8b5e3c; }
+  #closed p { font-size: 14px; color: #555; line-height: 1.8; }
+
+  #extra-count-wrap { display: none; margin-top: 14px; }
+  #participants-extra { margin-top: 0; }
 </style>
 </head>
 <body>
 <div class="container">
 
+  <div id="closed">
+    <div class="icon">🪵</div>
+    <h2>受付を締め切りました</h2>
+    <p>定員に達したため、現在お申し込みを受け付けておりません。<br>
+    キャンセル等が出た場合は再度受付を開始することがあります。<br><br>
+    お問い合わせ：<a href="tel:090-4480-0899" style="color:#8b5e3c">090-4480-0899</a><br>
+    <a href="mailto:regene.tourism@gmail.com" style="color:#8b5e3c">regene.tourism@gmail.com</a></p>
+  </div>
+
   <form id="mainForm" novalidate>
 
-    <!-- Header -->
     <div class="header-card">
       <div class="header-accent"></div>
       <div class="header-body">
@@ -213,85 +178,83 @@
       <p class="sub">当日ご体験される人数をご回答ください。</p>
       <div class="radio-group" id="group-ninzu">
         <label class="radio-option">
-          <input type="radio" name="ninzu" value="1名"> 1名
+          <input type="radio" name="ninzu" value="1" id="ninzu1"> 1名
         </label>
         <label class="radio-option">
-          <input type="radio" name="ninzu" value="2名以上"> 2名以上
+          <input type="radio" name="ninzu" value="multiple" id="ninzuM"> 2名以上
         </label>
+      </div>
+      <div id="extra-count-wrap">
+        <label class="q" style="margin-top:0; font-size:14px;">合計人数<span class="required">*</span></label>
+        <select id="total-count">
+          <option value="2">2名</option>
+          <option value="3">3名</option>
+          <option value="4">4名</option>
+          <option value="5">5名</option>
+          <option value="6">6名</option>
+          <option value="7">7名</option>
+          <option value="8">8名</option>
+        </select>
       </div>
       <div class="error-msg" id="err-ninzu">お申込み人数を選択してください</div>
     </div>
 
-    <!-- お名前 -->
+    <!-- 代表者連絡先 -->
     <div class="card">
-      <label class="q" for="name">1. お名前（ふりがな）<span class="required">*</span></label>
+      <div class="section-title">代表者の連絡先</div>
+      <label class="q" for="name">お名前（ふりがな）<span class="required">*</span></label>
       <input type="text" id="name" name="name" placeholder="例：やまだ たろう">
       <div class="error-msg" id="err-name">お名前を入力してください</div>
+
+      <div class="field-gap">
+        <label class="q" for="email">メールアドレス<span class="required">*</span></label>
+        <input type="email" id="email" name="email" placeholder="example@email.com">
+        <div class="error-msg" id="err-email">メールアドレスを入力してください</div>
+      </div>
+
+      <div class="field-gap">
+        <label class="q" for="tel">お電話番号<span class="required">*</span></label>
+        <input type="tel" id="tel" name="tel" placeholder="090-0000-0000">
+        <div class="error-msg" id="err-tel">お電話番号を入力してください</div>
+      </div>
     </div>
 
-    <!-- メール -->
-    <div class="card">
-      <label class="q" for="email">2. メールアドレス<span class="required">*</span></label>
-      <input type="email" id="email" name="email" placeholder="example@email.com">
-      <div class="error-msg" id="err-email">メールアドレスを入力してください</div>
-    </div>
-
-    <!-- 電話 -->
-    <div class="card">
-      <label class="q" for="tel">3. お電話番号<span class="required">*</span></label>
-      <input type="tel" id="tel" name="tel" placeholder="090-0000-0000">
-      <div class="error-msg" id="err-tel">お電話番号を入力してください</div>
-    </div>
-
-    <!-- 利き手 -->
-    <div class="card">
-      <label class="q">4. 利き手<span class="required">*</span></label>
+    <!-- 1人目の体験情報 -->
+    <div class="card" id="person-1-card">
+      <div class="section-title" id="person-1-title">体験情報</div>
+      <div id="person-1-name-wrap" style="display:none; margin-bottom:16px;">
+        <label class="q">お名前（ふりがな）<span class="required">*</span></label>
+        <input type="text" id="p1-name" placeholder="例：やまだ たろう">
+        <div class="error-msg" id="err-p1-name">お名前を入力してください</div>
+      </div>
+      <label class="q">利き手<span class="required">*</span></label>
       <p class="sub">※工具を準備する関係のため、ご回答ください</p>
-      <div class="radio-group" id="group-kiki">
-        <label class="radio-option">
-          <input type="radio" name="kiki" value="右"> 右
-        </label>
-        <label class="radio-option">
-          <input type="radio" name="kiki" value="左"> 左
-        </label>
+      <div class="radio-group">
+        <label class="radio-option"><input type="radio" name="kiki_1" value="右"> 右</label>
+        <label class="radio-option"><input type="radio" name="kiki_1" value="左"> 左</label>
       </div>
-      <div class="error-msg" id="err-kiki">利き手を選択してください</div>
+      <div class="error-msg" id="err-kiki-1">利き手を選択してください</div>
+      <div class="field-gap">
+        <label class="q">図案をお選びください<span class="required">*</span></label>
+        <p class="sub">※準備の都合上ご回答ください</p>
+        <div class="design-grid">
+          <label class="design-option"><img src="https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/sample_a01.jpg" alt="梅"><input type="radio" name="zuan_1" value="梅"> 梅</label>
+          <label class="design-option"><img src="https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/sample_a02.jpg" alt="ケシ"><input type="radio" name="zuan_1" value="ケシ"> ケシ</label>
+          <label class="design-option"><img src="https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/sample_a03.jpg" alt="桜"><input type="radio" name="zuan_1" value="桜"> 桜</label>
+          <label class="design-option"><img src="https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/sample_a04.jpg" alt="椿"><input type="radio" name="zuan_1" value="椿"> 椿</label>
+          <label class="design-option full-width"><img src="https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/sample_a05.jpg" alt="イチョウ"><input type="radio" name="zuan_1" value="イチョウ"> イチョウ</label>
+        </div>
+        <div class="error-msg" id="err-zuan-1">図案を選択してください</div>
+      </div>
     </div>
 
-    <!-- 図案選択 -->
-    <div class="card">
-      <label class="q">5. 図案をお選びください<span class="required">*</span></label>
-      <p class="sub">※準備の都合上ご回答ください</p>
-      <div class="design-grid" id="group-zuan">
-        <label class="design-option">
-          <img src="https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/sample_a01.jpg" alt="梅">
-          <input type="radio" name="zuan" value="梅"> 梅
-        </label>
-        <label class="design-option">
-          <img src="https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/sample_a02.jpg" alt="ケシ">
-          <input type="radio" name="zuan" value="ケシ"> ケシ
-        </label>
-        <label class="design-option">
-          <img src="https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/sample_a03.jpg" alt="桜">
-          <input type="radio" name="zuan" value="桜"> 桜
-        </label>
-        <label class="design-option">
-          <img src="https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/sample_a04.jpg" alt="椿">
-          <input type="radio" name="zuan" value="椿"> 椿
-        </label>
-        <label class="design-option full-width">
-          <img src="https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/sample_a05.jpg" alt="イチョウ">
-          <input type="radio" name="zuan" value="イチョウ"> イチョウ
-        </label>
-      </div>
-      <div class="error-msg" id="err-zuan">図案を選択してください</div>
-    </div>
+    <!-- 2人目以降（動的生成） -->
+    <div id="participants-extra"></div>
 
     <button type="submit" class="submit-btn">送信する</button>
 
   </form>
 
-  <!-- Thank you -->
   <div id="thankyou">
     <div class="check">✅</div>
     <h2>お申し込みを受け付けました</h2>
@@ -304,62 +267,199 @@
 </div>
 
 <script>
+// 受付状況チェック
+fetch('/status.json')
+  .then(r => r.json())
+  .then(s => {
+    if (!s.open) {
+      document.getElementById('mainForm').style.display = 'none';
+      document.getElementById('closed').style.display = 'block';
+    }
+  })
+  .catch(() => {});
+
+// 図案グリッドHTML生成
+function designGrid(n) {
+  const designs = [
+    { val: '梅',    img: 'sample_a01' },
+    { val: 'ケシ',  img: 'sample_a02' },
+    { val: '桜',    img: 'sample_a03' },
+    { val: '椿',    img: 'sample_a04' },
+    { val: 'イチョウ', img: 'sample_a05' },
+  ];
+  const base = 'https://www.kamakura-bori.co.jp/wp-content/themes/kenyoudou/img/trial/';
+  return `<div class="design-grid">
+    ${designs.map((d, i) => `
+      <label class="design-option${i === 4 ? ' full-width' : ''}">
+        <img src="${base}${d.img}.jpg" alt="${d.val}">
+        <input type="radio" name="zuan_${n}" value="${d.val}"> ${d.val}
+      </label>`).join('')}
+  </div>`;
+}
+
+// 参加者カードHTML生成（2人目以降）
+function participantCard(n) {
+  return `
+  <div class="card" id="person-${n}-card">
+    <div class="section-title">${n}人目の体験情報</div>
+    <label class="q">お名前（ふりがな）<span class="required">*</span></label>
+    <input type="text" id="p${n}-name" placeholder="例：やまだ はなこ">
+    <div class="error-msg" id="err-p${n}-name">お名前を入力してください</div>
+    <div class="field-gap">
+      <label class="q">利き手<span class="required">*</span></label>
+      <p class="sub">※工具を準備する関係のため、ご回答ください</p>
+      <div class="radio-group">
+        <label class="radio-option"><input type="radio" name="kiki_${n}" value="右"> 右</label>
+        <label class="radio-option"><input type="radio" name="kiki_${n}" value="左"> 左</label>
+      </div>
+      <div class="error-msg" id="err-kiki-${n}">利き手を選択してください</div>
+    </div>
+    <div class="field-gap">
+      <label class="q">図案をお選びください<span class="required">*</span></label>
+      <p class="sub">※準備の都合上ご回答ください</p>
+      ${designGrid(n)}
+      <div class="error-msg" id="err-zuan-${n}">図案を選択してください</div>
+    </div>
+  </div>`;
+}
+
+// 人数に応じて参加者カードを更新
+function updateParticipants(total) {
+  const container = document.getElementById('participants-extra');
+  container.innerHTML = '';
+  for (let i = 2; i <= total; i++) {
+    container.innerHTML += participantCard(i);
+  }
+  // 1人目のタイトルを更新
+  document.getElementById('person-1-title').textContent = '1人目の体験情報';
+  document.getElementById('person-1-name-wrap').style.display = 'block';
+}
+
+function resetTo1Person() {
+  document.getElementById('participants-extra').innerHTML = '';
+  document.getElementById('person-1-title').textContent = '体験情報';
+  document.getElementById('person-1-name-wrap').style.display = 'none';
+}
+
+// 人数選択イベント
+document.querySelectorAll('input[name="ninzu"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    const wrap = document.getElementById('extra-count-wrap');
+    if (this.value === 'multiple') {
+      wrap.style.display = 'block';
+      const count = parseInt(document.getElementById('total-count').value);
+      updateParticipants(count);
+    } else {
+      wrap.style.display = 'none';
+      resetTo1Person();
+    }
+  });
+});
+
+document.getElementById('total-count').addEventListener('change', function() {
+  updateParticipants(parseInt(this.value));
+});
+
+// 送信処理
 document.getElementById('mainForm').addEventListener('submit', function(e) {
   e.preventDefault();
   let valid = true;
 
-  function check(condition, errId) {
-    const el = document.getElementById(errId);
-    if (condition) {
-      el.style.display = 'none';
+  function checkEl(el, errId) {
+    const err = document.getElementById(errId);
+    if (el && el.value && el.value.trim()) {
+      err.style.display = 'none';
     } else {
-      el.style.display = 'block';
+      err.style.display = 'block';
+      valid = false;
+      if (err.scrollIntoView && !window._scrolled) { err.scrollIntoView({behavior:'smooth', block:'center'}); window._scrolled = true; }
+    }
+  }
+  function checkRadio(name, errId) {
+    const err = document.getElementById(errId);
+    if (document.querySelector(`input[name="${name}"]:checked`)) {
+      err.style.display = 'none';
+    } else {
+      err.style.display = 'block';
       valid = false;
     }
   }
 
-  check(document.querySelector('input[name="ninzu"]:checked'), 'err-ninzu');
-  check(document.getElementById('name').value.trim(), 'err-name');
-  const email = document.getElementById('email').value.trim();
-  check(email && email.includes('@'), 'err-email');
-  check(document.getElementById('tel').value.trim(), 'err-tel');
-  check(document.querySelector('input[name="kiki"]:checked'), 'err-kiki');
-  check(document.querySelector('input[name="zuan"]:checked'), 'err-zuan');
+  window._scrolled = false;
 
-  if (valid) {
-    const submitBtn = document.querySelector('.submit-btn');
-    submitBtn.textContent = '送信中...';
-    submitBtn.disabled = true;
+  const ninzu = document.querySelector('input[name="ninzu"]:checked');
+  if (!ninzu) { document.getElementById('err-ninzu').style.display = 'block'; valid = false; }
+  else document.getElementById('err-ninzu').style.display = 'none';
 
-    const data = {
-      お名前: document.getElementById('name').value,
-      メールアドレス: document.getElementById('email').value,
-      お電話番号: document.getElementById('tel').value,
-      お申込み人数: document.querySelector('input[name="ninzu"]:checked').value,
-      利き手: document.querySelector('input[name="kiki"]:checked').value,
-      図案: document.querySelector('input[name="zuan"]:checked').value,
-      _cc: 'ryuka2452533@icloud.com,chihiro.20000122@gmail.com',
-      _subject: '【円応寺 鎌倉彫体験】お申し込みがありました',
-      _template: 'table'
-    };
+  checkEl(document.getElementById('name'), 'err-name');
+  const emailEl = document.getElementById('email');
+  const emailErr = document.getElementById('err-email');
+  if (emailEl.value.trim() && emailEl.value.includes('@')) { emailErr.style.display = 'none'; }
+  else { emailErr.style.display = 'block'; valid = false; }
+  checkEl(document.getElementById('tel'), 'err-tel');
 
-    fetch('https://formsubmit.co/ajax/regene.tourism@gmail.com', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(() => {
-      document.getElementById('mainForm').style.display = 'none';
-      document.getElementById('thankyou').style.display = 'block';
-      window.scrollTo(0, 0);
-    })
-    .catch(() => {
-      submitBtn.textContent = '送信する';
-      submitBtn.disabled = false;
-      alert('送信中にエラーが発生しました。時間をおいて再度お試しください。');
-    });
+  // 1人目
+  const isMultiple = ninzu && ninzu.value === 'multiple';
+  if (isMultiple) {
+    checkEl(document.getElementById('p1-name'), 'err-p1-name');
   }
+  checkRadio('kiki_1', 'err-kiki-1');
+  checkRadio('zuan_1', 'err-zuan-1');
+
+  // 2人目以降
+  const total = isMultiple ? parseInt(document.getElementById('total-count').value) : 1;
+  for (let i = 2; i <= total; i++) {
+    checkEl(document.getElementById(`p${i}-name`), `err-p${i}-name`);
+    checkRadio(`kiki_${i}`, `err-kiki-${i}`);
+    checkRadio(`zuan_${i}`, `err-zuan-${i}`);
+  }
+
+  if (!valid) return;
+
+  const submitBtn = document.querySelector('.submit-btn');
+  submitBtn.textContent = '送信中...';
+  submitBtn.disabled = true;
+
+  // データ構築
+  const data = {
+    代表者名: document.getElementById('name').value,
+    メールアドレス: document.getElementById('email').value,
+    お電話番号: document.getElementById('tel').value,
+    合計人数: total + '名',
+    _cc: 'ryuka2452533@icloud.com,chihiro.20000122@gmail.com',
+    _subject: '【円応寺 鎌倉彫体験】お申し込みがありました',
+    _template: 'table'
+  };
+
+  // 1人目
+  const name1 = isMultiple ? document.getElementById('p1-name').value : document.getElementById('name').value;
+  data['1人目_お名前'] = name1;
+  data['1人目_利き手'] = document.querySelector('input[name="kiki_1"]:checked').value;
+  data['1人目_図案']   = document.querySelector('input[name="zuan_1"]:checked').value;
+
+  // 2人目以降
+  for (let i = 2; i <= total; i++) {
+    data[`${i}人目_お名前`] = document.getElementById(`p${i}-name`).value;
+    data[`${i}人目_利き手`] = document.querySelector(`input[name="kiki_${i}"]:checked`).value;
+    data[`${i}人目_図案`]   = document.querySelector(`input[name="zuan_${i}"]:checked`).value;
+  }
+
+  fetch('https://formsubmit.co/ajax/regene.tourism@gmail.com', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(data)
+  })
+  .then(res => res.json())
+  .then(() => {
+    document.getElementById('mainForm').style.display = 'none';
+    document.getElementById('thankyou').style.display = 'block';
+    window.scrollTo(0, 0);
+  })
+  .catch(() => {
+    submitBtn.textContent = '送信する';
+    submitBtn.disabled = false;
+    alert('送信中にエラーが発生しました。時間をおいて再度お試しください。');
+  });
 });
 </script>
 </body>
