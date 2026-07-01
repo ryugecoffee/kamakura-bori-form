@@ -1,0 +1,409 @@
+:root {
+  --red: #8b1a1a;
+  --red-dk: #6b1010;
+  --red-tint: rgba(139, 26, 26, 0.07);
+  --wood: #c4956a;
+  --ink: #1a1208;
+  --ink-mid: #4a3830;
+  --ink-lt: #9a8880;
+  --washi: #f5efe0;
+  --washi-dk: #e5d9c8;
+  --gold: #a07830;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--washi);
+  color: var(--ink);
+  font-family: "Noto Sans JP", "Hiragino Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+.serif {
+  font-family: "Noto Serif JP", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ============================================================
+   レイアウト
+============================================================ */
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px 80px;
+}
+.wrap {
+  width: 100%;
+  max-width: 480px;
+}
+
+.head {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.head h1 {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  letter-spacing: 0.04em;
+}
+.head p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-mid);
+}
+
+/* ---- ステップインジケーター ---- */
+.steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0 0 24px;
+}
+.step-seg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.step-dot {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--washi-dk);
+  color: var(--ink-lt);
+  transition: all 0.2s;
+}
+.step-dot.is-active {
+  background: var(--red);
+  color: #fff;
+}
+.step-dot.is-done {
+  background: var(--gold);
+  color: #fff;
+}
+.step-bar {
+  width: 20px;
+  height: 2px;
+  background: var(--washi-dk);
+}
+.step-bar.is-done {
+  background: var(--gold);
+}
+
+/* ---- カード ---- */
+.card {
+  background: #fff;
+  border: 1px solid var(--washi-dk);
+  border-radius: 14px;
+  padding: 22px 18px;
+}
+.card h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+/* ---- ラジオカード（人数・利き手） ---- */
+.radio-row {
+  display: flex;
+  gap: 10px;
+}
+.radio {
+  flex: 1;
+  border: 1.5px solid var(--washi-dk);
+  border-radius: 12px;
+  padding: 16px 10px;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  font-size: 14px;
+  color: var(--ink);
+  font-family: inherit;
+  transition: all 0.15s;
+}
+.radio.is-sel {
+  border-color: var(--red);
+  background: var(--red-tint);
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* ---- 図案セレクター ---- */
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+.pattern-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px 0;
+}
+.plate {
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid transparent;
+  background: var(--washi-dk);
+  transition: border-color 0.15s;
+  flex: none;
+}
+.plate > img,
+.plate > svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pattern-cell.is-sel .plate {
+  border-color: var(--red);
+}
+.pattern-name {
+  font-size: 11px;
+  color: var(--ink-mid);
+  line-height: 1.2;
+  text-align: center;
+}
+.pattern-cell.is-sel .pattern-name {
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* ---- 仕上げセレクター ---- */
+.finish {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--washi-dk);
+  animation: fade 0.25s ease;
+}
+.finish-label {
+  font-size: 13px;
+  color: var(--ink-mid);
+  margin: 0 0 10px;
+}
+.finish-row {
+  display: flex;
+  gap: 10px;
+}
+.finish-card {
+  flex: 1;
+  border: 1.5px solid var(--washi-dk);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.15s;
+}
+.finish-card.is-sel {
+  border-color: var(--red);
+  background: var(--red-tint);
+}
+.finish-card .plate {
+  border-width: 0;
+}
+.finish-text b {
+  display: block;
+  font-size: 14px;
+  color: var(--ink);
+}
+.finish-card.is-sel .finish-text b {
+  color: var(--red);
+}
+.finish-text span {
+  font-size: 11px;
+  color: var(--ink-lt);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- 入力フィールド ---- */
+.field {
+  margin-bottom: 14px;
+}
+.field label {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-mid);
+  margin-bottom: 5px;
+}
+.field input {
+  width: 100%;
+  border: 1.5px solid var(--washi-dk);
+  border-radius: 10px;
+  padding: 11px 12px;
+  font-size: 15px;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s;
+}
+.field input:focus {
+  border-color: var(--red);
+}
+.field.has-error input {
+  border-color: var(--red);
+}
+.err {
+  font-size: 11px;
+  color: var(--red);
+  margin-top: 4px;
+}
+
+/* ---- 確認画面 ---- */
+.confirm-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.confirm-head .plate {
+  border-width: 0;
+}
+.summary {
+  border-top: 1px solid var(--washi-dk);
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 2px;
+  border-bottom: 1px solid var(--washi-dk);
+  font-size: 14px;
+}
+.summary-row dt {
+  color: var(--ink-lt);
+  flex: none;
+}
+.summary-row dd {
+  text-align: right;
+  color: var(--ink);
+  word-break: break-all;
+}
+
+/* ---- ボタン ---- */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+.btn {
+  flex: 1;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.btn-primary {
+  background: var(--red);
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--red-dk);
+}
+.btn-primary:disabled {
+  background: var(--washi-dk);
+  color: var(--ink-lt);
+  cursor: not-allowed;
+}
+.btn-ghost {
+  flex: 0 0 auto;
+  background: transparent;
+  color: var(--ink-mid);
+  border: 1.5px solid var(--washi-dk);
+  padding: 14px 20px;
+}
+
+/* ---- 完了画面 ---- */
+.done {
+  text-align: center;
+}
+.check {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #2e7d46;
+  margin: 4px auto 18px;
+  display: grid;
+  place-items: center;
+}
+.check svg {
+  width: 32px;
+  height: 32px;
+  stroke: #fff;
+  stroke-width: 3;
+  fill: none;
+}
+.done h2 {
+  font-size: 18px;
+  margin: 0 0 4px;
+}
+.done > p {
+  font-size: 13px;
+  color: var(--ink-mid);
+  margin: 0 0 20px;
+}
+.done .plate {
+  border-width: 0;
+  margin: 0 auto 18px;
+}
+.event {
+  text-align: left;
+  background: var(--washi);
+  border: 1px solid var(--washi-dk);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 8px;
+}
+.event .summary-row:last-child {
+  border-bottom: none;
+}
