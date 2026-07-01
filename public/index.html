@@ -327,9 +327,38 @@ document.getElementById('mainForm').addEventListener('submit', function(e) {
   check(document.querySelector('input[name="zuan"]:checked'), 'err-zuan');
 
   if (valid) {
-    document.getElementById('mainForm').style.display = 'none';
-    document.getElementById('thankyou').style.display = 'block';
-    window.scrollTo(0, 0);
+    const submitBtn = document.querySelector('.submit-btn');
+    submitBtn.textContent = '送信中...';
+    submitBtn.disabled = true;
+
+    const data = {
+      お名前: document.getElementById('name').value,
+      メールアドレス: document.getElementById('email').value,
+      お電話番号: document.getElementById('tel').value,
+      お申込み人数: document.querySelector('input[name="ninzu"]:checked').value,
+      利き手: document.querySelector('input[name="kiki"]:checked').value,
+      図案: document.querySelector('input[name="zuan"]:checked').value,
+      _cc: 'ryuka2452533@icloud.com',
+      _subject: '【円応寺 鎌倉彫体験】お申し込みがありました',
+      _template: 'table'
+    };
+
+    fetch('https://formsubmit.co/ajax/regene.tourism@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(() => {
+      document.getElementById('mainForm').style.display = 'none';
+      document.getElementById('thankyou').style.display = 'block';
+      window.scrollTo(0, 0);
+    })
+    .catch(() => {
+      submitBtn.textContent = '送信する';
+      submitBtn.disabled = false;
+      alert('送信中にエラーが発生しました。時間をおいて再度お試しください。');
+    });
   }
 });
 </script>
