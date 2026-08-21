@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import type { Finish, PatternId } from "@/lib/patterns";
 import { patSVG } from "@/lib/patternSvg";
 
@@ -11,34 +10,23 @@ type Props = {
   className?: string;
 };
 
-// 図案プレート。public/patterns/<id>-<finish>.jpg を表示し、
-// 画像が無ければ SVG フォールバックに切り替える。
+// 図案プレート。未配置画像へのリクエストを避けるため、
+// ローカルで生成した SVG を直接表示する。
 export default function PatternPlate({
   id,
   finish = "wood",
   size,
   className = "",
 }: Props) {
-  const [err, setErr] = useState(false);
   const style = { width: size, height: size };
 
-  if (err) {
-    return (
-      <div
-        className={`plate ${className}`}
-        style={style}
-        dangerouslySetInnerHTML={{ __html: patSVG(id, finish) }}
-      />
-    );
-  }
   return (
-    <div className={`plate ${className}`} style={style}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`/patterns/${id}-${finish}.jpg`}
-        alt=""
-        onError={() => setErr(true)}
-      />
-    </div>
+    <div
+      className={`plate ${className}`}
+      style={style}
+      role="img"
+      aria-label={`${id}-${finish}`}
+      dangerouslySetInnerHTML={{ __html: patSVG(id, finish) }}
+    />
   );
 }
