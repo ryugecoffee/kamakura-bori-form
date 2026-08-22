@@ -20,6 +20,10 @@ const securityHeaders = [
     value: contentSecurityPolicy,
   },
   {
+    key: "Strict-Transport-Security",
+    value: "max-age=31536000",
+  },
+  {
     key: "X-Content-Type-Options",
     value: "nosniff",
   },
