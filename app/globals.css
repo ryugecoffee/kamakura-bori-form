@@ -59,6 +59,7 @@ img {
 .wrap {
   width: 100%;
   max-width: 480px;
+  min-width: 0;
 }
 
 .head {
@@ -125,6 +126,7 @@ img {
   border: 1px solid var(--washi-dk);
   border-radius: 14px;
   padding: 22px 18px;
+  min-width: 0;
 }
 .card h2 {
   font-size: 16px;
@@ -139,6 +141,7 @@ img {
 }
 .radio {
   flex: 1;
+  min-width: 0;
   border: 1.5px solid var(--washi-dk);
   border-radius: 12px;
   padding: 16px 10px;
@@ -160,10 +163,11 @@ img {
 /* ---- 図案セレクター ---- */
 .pattern-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 6px;
 }
 .pattern-cell {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -192,6 +196,7 @@ img {
   border-color: var(--red);
 }
 .pattern-name {
+  max-width: 100%;
   font-size: 11px;
   color: var(--ink-mid);
   line-height: 1.2;
@@ -220,6 +225,7 @@ img {
 }
 .finish-card {
   flex: 1;
+  min-width: 0;
   border: 1.5px solid var(--washi-dk);
   border-radius: 12px;
   padding: 12px;
@@ -236,6 +242,9 @@ img {
 }
 .finish-card .plate {
   border-width: 0;
+}
+.finish-text {
+  min-width: 0;
 }
 .finish-text b {
   display: block;
@@ -321,9 +330,10 @@ img {
   flex: none;
 }
 .summary-row dd {
+  min-width: 0;
   text-align: right;
   color: var(--ink);
-  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 /* ---- ボタン ---- */
@@ -334,6 +344,7 @@ img {
 }
 .btn {
   flex: 1;
+  min-width: 0;
   border: none;
   border-radius: 12px;
   padding: 14px;
@@ -406,4 +417,32 @@ img {
 }
 .event .summary-row:last-child {
   border-bottom: none;
+}
+
+/* ---- 狭い画面 ---- */
+@media (max-width: 400px) {
+  .page {
+    padding: 24px 12px 64px;
+  }
+
+  .head h1 {
+    font-size: 20px;
+  }
+
+  .card {
+    padding: 20px 16px;
+  }
+
+  .pattern-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 12px;
+  }
+
+  .finish-row {
+    flex-direction: column;
+  }
+
+  .finish-card {
+    width: 100%;
+  }
 }
