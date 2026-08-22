@@ -160,7 +160,7 @@ img {
 /* ---- 図案セレクター ---- */
 .pattern-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 6px;
 }
 .pattern-cell {
@@ -168,6 +168,7 @@ img {
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  min-width: 0;
   cursor: pointer;
   background: none;
   border: none;
@@ -220,6 +221,7 @@ img {
 }
 .finish-card {
   flex: 1;
+  min-width: 0;
   border: 1.5px solid var(--washi-dk);
   border-radius: 12px;
   padding: 12px;
@@ -236,6 +238,9 @@ img {
 }
 .finish-card .plate {
   border-width: 0;
+}
+.finish-text {
+  min-width: 0;
 }
 .finish-text b {
   display: block;
@@ -406,4 +411,19 @@ img {
 }
 .event .summary-row:last-child {
   border-bottom: none;
+}
+
+@media (max-width: 420px) {
+  .pattern-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 10px;
+  }
+
+  .finish-row {
+    flex-direction: column;
+  }
+
+  .finish-card {
+    width: 100%;
+  }
 }
