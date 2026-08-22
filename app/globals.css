@@ -407,3 +407,23 @@ img {
 .event .summary-row:last-child {
   border-bottom: none;
 }
+
+/* ---- 狭い画面での図案・仕上げ選択 ---- */
+@media (max-width: 400px) {
+  .pattern-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 6px;
+  }
+
+  .pattern-cell:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .finish-row {
+    flex-direction: column;
+  }
+
+  .finish-card {
+    width: 100%;
+  }
+}
